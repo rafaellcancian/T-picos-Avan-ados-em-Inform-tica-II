@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Gerenciamento de Fretes</title>
+    </h:head>
+    
+    <h:body>
+    	<h1>Gerenciamento de Fretes</h1>
+    	<hr />
+        <h:form acceptcharset="ISO-8859-1">
+        	<p>Insira o usuário e a senha abaixo para acessar o sistema:</p>
+            <p:inputText id="nome" value="#{loginBean.nome}" p:placeholder="Usuário" required="true" />
+            <tr />
+            <tr />
+            <p:password id="toggle" value="#{loginBean.senha}" toggleMask="true" redisplay="true" p:placeholder="Senha" required="true" /> 
+            <br />
+            <br />
+            <p:commandButton value="Entrar" icon="pi pi-check" action="#{loginBean.entrar()}" />
+        </h:form>
+		<br />
+		<p>Ainda não possui uma conta?</p>
+		<p:button value="Cadastrar-se" styleClass="ui-button-outlined" outcome="cadastro" />
+    </h:body>
+</html>	

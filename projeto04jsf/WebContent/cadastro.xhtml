@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastrar-se</title>
+    </h:head>
+    <h:body>
+    	<h1>Cadastrar-se</h1>
+    	<hr />
+        <h:form id="form" acceptcharset="ISO-8859-1">
+        	<p>Para efetuar o cadastro no sistema preencha os campos abaixo:</p>
+            <p:inputText size="20" id="nome" value="#{cadastroBean.nome}" p:placeholder="Usuário" required="true" maxlength="50" />
+            <br />
+            <br />
+            <p:password id="feedback" value="#{cadastroBean.senha}" feedback="true" maxlength="50" p:placeholder="Senha" required="true" /> 
+            <br />
+            <br />
+            <p:password id="nonFeedback" value="#{cadastroBean.confirmarSenha}" maxlength="50" p:placeholder="Confirmar senha" required="true" />  
+            <p>Você gostaria de se cadastrar como Cliente ou Entregador?</p>
+			<div class="p-field p-col-12 p-md-4">
+                <p:selectOneMenu id="option" value="#{cadastroBean.tipo}">
+                    <f:selectItem itemLabel="Cliente" itemValue="Cliente"/>
+                    <f:selectItem itemLabel="Entregador" itemValue="Entregador"/>
+                </p:selectOneMenu>
+            </div>
+			<br />
+            <p:commandButton icon="pi pi-check" value="Efetuar cadastro" action="#{cadastroBean.cadastrar()}" />
+            <tr />
+            <tr />
+			<p:commandButton value="Cancelar" styleClass="ui-button-outlined" onclick="if (! confirm('Você deseja limpar os campos?')) return false" >
+			    <p:ajax update="form" resetValues="true" />
+			</p:commandButton>
+        </h:form>
+    </h:body>
+</html>	

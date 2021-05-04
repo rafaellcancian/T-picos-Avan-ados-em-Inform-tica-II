@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<title>Visualizar fretes</title>
+	</h:head>
+	<h:body>
+		<h1>Visualizar fretes</h1>
+		<hr />
+		<h:form acceptcharset="ISO-8859-1">
+		    <div class="card">
+		        <p:dataTable var="produto" value="#{clienteBean.listarProdutosCliente()}">
+		            <p:column headerText="ID">
+		                <h:outputText value="#{produto.id}" />
+		            </p:column>
+		            
+		            <p:column headerText="Nome do produto">
+		                <h:outputText value="#{produto.produto}" />
+		            </p:column>
+		
+		            <p:column headerText="Descrição">
+		                <h:outputText value="#{produto.descricao}" />
+		            </p:column>
+		
+		            <p:column headerText="Origem">
+		                <h:outputText value="#{produto.origem}" />
+		            </p:column>
+		
+		            <p:column headerText="Destino">
+		                <h:outputText value="#{produto.destino}" />
+		            </p:column>
+		        </p:dataTable>
+		    </div>
+		</h:form>
+	</h:body>
+</html>

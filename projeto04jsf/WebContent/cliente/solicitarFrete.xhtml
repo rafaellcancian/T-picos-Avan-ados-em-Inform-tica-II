@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<title>Solicitar frete</title>
+	</h:head>
+	<h:body>
+		<h1>Solicitar frete</h1>
+		<hr />
+	        <h:form id="form" acceptcharset="ISO-8859-1">
+	        	<p>Preencha os campos abaixo para realizar uma solicitação de frete para um entregador:</p>
+	            <p:inputText size="25" id="produto" value="#{clienteBean.produto}" p:placeholder="Nome do produto" required="true" maxlength="50" />
+	            <br />
+	            <br />
+	            <p:inputTextarea rows="5" cols="30" counter="display" maxlength="200" counterTemplate="Caracteres disponíveis: {0}" autoResize="true" value="#{clienteBean.descricao}" 
+	            	p:placeholder="Descrição (Opcional)" required="false"/>
+	            <br />
+	            <br />
+	        	<h:outputText id="display" class="p-d-block" />
+	            <br />
+	            <br />
+	            <br />
+	            <p:inputText size="50" id="origem" value="#{clienteBean.origem}" p:placeholder="Endereço da origem" required="true" maxlength="100" />
+	            <br />
+	            <br />
+	            <p:inputText size="50" id="destino" value="#{clienteBean.destino}" p:placeholder="Endereço do destino" required="true" maxlength="100" />
+	            <br />
+	            <br /> 
+	            <p:commandButton icon="pi pi-check" value="Solicitar frete" action="#{clienteBean.solicitarFrete()}" />
+	            <tr />
+	            <tr />
+				<p:commandButton value="Cancelar" styleClass="ui-button-outlined" onclick="if (! confirm('Você deseja limpar os campos?')) return false" >
+				    <p:ajax update="form" resetValues="true" />
+				</p:commandButton>
+	        </h:form>
+	</h:body>
+</html>

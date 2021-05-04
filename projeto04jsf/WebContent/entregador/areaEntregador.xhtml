@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<title>Área do entregador</title>
+	</h:head>
+	<h:body>
+		<h1>Área do entregador</h1>
+		<hr />
+		<p>Bem-vindo(a) <b>#{entregadorBean.getEntregador()}</b></p>
+		<h:form>
+			<p:commandButton value="Sair" styleClass="ui-button-danger" action="#{loginBean.sair()}" />
+		</h:form>
+		<br />
+			<h:form acceptcharset="ISO-8859-1">
+		    <div class="card">
+		        <p:dataTable var="produto" value="#{entregadorBean.listarProdutos()}">
+		            <p:column headerText="ID">
+		                <h:outputText value="#{produto.id}" />
+		            </p:column>
+		            
+		            <p:column headerText="Nome do produto">
+		                <h:outputText value="#{produto.produto}" />
+		            </p:column>
+		
+		            <p:column headerText="Descrição">
+		                <h:outputText value="#{produto.descricao}" />
+		            </p:column>
+		
+		            <p:column headerText="Origem">
+		                <h:outputText value="#{produto.origem}" />
+		            </p:column>
+		
+		            <p:column headerText="Destino">
+		                <h:outputText value="#{produto.destino}" />
+		            </p:column>
+		           	<p:column headerText="Cliente">
+		                <h:outputText value="#{produto.cliente}" />
+		            </p:column>
+		        </p:dataTable>
+		    </div>
+		</h:form>
+	</h:body>
+</html>

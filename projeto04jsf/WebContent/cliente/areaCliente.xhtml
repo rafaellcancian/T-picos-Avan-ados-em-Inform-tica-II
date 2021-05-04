@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<title>Área do cliente</title>
+	</h:head>
+	<h:body>
+		<h1>Área do cliente</h1>
+		<hr />
+		<p>Bem-vindo(a) <b>#{clienteBean.getCliente()}</b></p>
+		<p>Escolha uma das opções abaixo:</p>
+		<p:button value="Solicitar frete" styleClass="ui-button-outlined" outcome="solicitarFrete" />
+		<tr />
+		<p:button value="Visualizar fretes" styleClass="ui-button-outlined" outcome="visualizarFretes" />
+		<br />
+		<br />
+		<h:form>
+			<p:commandButton value="Sair" styleClass="ui-button-danger" action="#{loginBean.sair()}" />
+		</h:form>
+	</h:body>
+</html>
